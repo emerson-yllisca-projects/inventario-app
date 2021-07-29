@@ -6,18 +6,3 @@ services:
         container_name: inventario-app-back
         volumes:
             - ../inventario-app-back-logs:/usr/src/app/api/config/server/logs
-    invetario-db:
-        image: mysql:5.7
-        platform: linux/amd64
-        container_name: 'inventario-db'
-        environment:
-            MYSQL_DATABASE: 'db-inventario'
-            MYSQL_USER: 'root'
-            MYSQL_PASSWORD: 'mysqldbroot'
-            MYSQL_ROOT_PASSWORD: 'mysqldbroot'
-        ports:
-            - 308:3308
-        volumes:
-            - 'inventario-db:/var/lib/mysql'
-volumes:
-    inventario-db:

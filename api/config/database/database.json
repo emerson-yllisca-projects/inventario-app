@@ -1,9 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
+    "password": "mysql_inventario2021",
+    "database": "db_inventario",
     "host": "127.0.0.1",
+    "port":"23306",
     "dialect": "mysql"
   },
   "test": {
