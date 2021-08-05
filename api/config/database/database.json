@@ -4,7 +4,7 @@
     "password": "mysql_inventario2021",
     "database": "db_inventario",
     "host": "127.0.0.1",
-    "port":"23306",
+    "port":"13306",
     "dialect": "mysql"
   },
   "test": {

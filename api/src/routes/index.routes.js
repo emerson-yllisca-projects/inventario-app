@@ -4,7 +4,7 @@ const categoriasRoutes = require('./categorias.routes');
 const marcasRoutes = require('./marcas.routes');
 
 const router = Router();
-router.use('/productos' , productosRoutes);
 router.use('/categorias' , categoriasRoutes);
 router.use('/marcas' , marcasRoutes)
+router.use('/productos' , productosRoutes);
 module.exports = router;

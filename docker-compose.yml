@@ -1,8 +1,16 @@
 version: '3'
-services:
-    inventario-app:
+services: 
+    inventario_db_2:
         platform: linux/amd64
         build: .
-        container_name: inventario-app-back
-        volumes:
-            - ../inventario-app-back-logs:/usr/src/app/api/config/server/logs
+        container_name: db_inventario_2
+        ports: 
+            - 13306:3306
+        environment: 
+            MYSQL_ROOT_PASSWORD: "mysql_inventario2021"
+            MYSQL_DATABASE: "db_inventario"
+            MYSQL_USER: "user_inventario"
+            MYSQL_PASSWORD: "mysql_inventario2021_root"
+        volumes: 
+            - ./schemas:/var/lib/mysql:rw
+       

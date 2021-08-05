@@ -7,6 +7,6 @@ const logger = require('../config/server/logger')
 
 app.listen(port , () => {
     logger.info("Iniciando...");
-    //connect();
+    connect();
     logger.info(`Servidor inicializado en el puerto ${port}` );
 })
