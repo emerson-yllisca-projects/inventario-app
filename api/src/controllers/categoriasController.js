@@ -55,16 +55,28 @@ const create = async( req , res) => {
     try {
         categoria = JSON.parse(JSON.stringify(await Categorias.create(data)));
 
-        return res.status(201).json(categoria);
+        return res.status(201).json({
+            ok:true,
+            msg:`Se creo correctamente la categoria  ${categoria.categoria_nombre}`,
+            categoria
+        });
     }
     catch(e) {
         return res.status(500).json({Error: e.message});
     }
-    
+}
+
+const update = async(req , res) => {
+
+
+    return res.json({
+        ok:true
+    })
 }
 
 module.exports = {
     getAll,
     getOne,
-    create
+    create,
+    update
 }

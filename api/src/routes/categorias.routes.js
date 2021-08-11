@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const { getAll , create , getOne } = require('../controllers/categoriasController');
-const { check  , query, param} = require('express-validator');
+const { getAll , create , getOne , update} = require('../controllers/categoriasController');
+const { check  , query } = require('express-validator');
 const { validarCampos  } = require('../utils/middlewares/valida-routes');
 
 
@@ -18,7 +18,21 @@ const router = Router();
         validarCampos
     ] , getOne );
 
-    router.post('/create' , create)
+    router.post('/create' , [
+        check('categoria_nombre' , 'El nombre de la categoria es obligatoria').not().isEmpty(),
+        check('categoria_descripcion' , 'La descripcion de la categoria es obligatoria').not().isEmpty(),
+        check('categoria_estado' , 'El estado de la categoria es obligatoria').not().isEmpty(),
+        validarCampos
+    ] , create);
+
+    router.post('/update' , [
+        check('categoria_id' , 'El id de la categoria es obligatoria').not().isEmpty(),
+        check('categoria_id' , 'El id de la categoria es obligatoria').isNumeric(),
+        check('categoria_nombre' , 'El nombre de la categoria es obligatoria').not().isEmpty(),
+        check('categoria_descripcion' , 'La descripcion de la categoria es obligatoria').not().isEmpty(),
+        check('categoria_estado' , 'El estado de la categoria es obligatoria').not().isEmpty(),
+        validarCampos
+    ] , update);
 
 
 module.exports = router;

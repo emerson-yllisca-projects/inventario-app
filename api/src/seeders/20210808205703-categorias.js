@@ -12,19 +12,20 @@ module.exports = {
      * }], {});
     */
 
-     await queryInterface.bulkInsert('Categorias', [{
-      categoria_nombre:'Categoria 1',
-      categoria_descripcion:'desc Categoria 1',
-      categoria_estado:true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-      }, 
+     await queryInterface.bulkInsert('Categorias', [
       {
-        categoria_nombre:'Categoria 2',
-        categoria_descripcion:'desc Categoria 2',
+        categoria_nombre:'Bebidas',
+        categoria_descripcion:'Aqui no aplican bebidas alcholicas',
         categoria_estado:true,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: null
+      }, 
+      {
+        categoria_nombre:'Lacteos',
+        categoria_descripcion:'Leche, Yogurt',
+        categoria_estado:true,
+        createdAt: new Date(),
+        updatedAt: null
       }
   ], {});
 
