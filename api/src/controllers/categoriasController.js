@@ -2,7 +2,7 @@
 const {Productos , Marca , Proveedor , Categorias} = require('../models');
 const _ = require('lodash');
 const {getPagination , getPagingData } = require('../utils/general');
-
+const logger = require('../../config/server/logger') 
 const getAll = async(req , res) => {
 
     const  { page } = req.query;
