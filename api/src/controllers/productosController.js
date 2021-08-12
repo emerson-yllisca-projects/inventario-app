@@ -14,14 +14,13 @@ const getAll = async ( req , res ) => {
           as:'marca'
         },
         {
-            model:Proveedor,
-            as:'proveedor'
+          model:Proveedor,
+          as:'proveedor'
         }
     ]});
 
     return res.json({
         ok:true,
-        msg:'products',
         data
     })
 }

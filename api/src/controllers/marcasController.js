@@ -1,11 +1,13 @@
 const {Productos , Marca , Proveedor , Categorias} = require('../models');
 const _ = require('lodash');
 const {getPagination , getPagingData } = require('../utils/general');
-
+const logger = require('../../config/server/logger');
 
 const getAll = async(req , res) => {
 
     const  { page } = req.query;
+
+    logger.info(`Listando las marcas...`);
 
     const { limit, offset } = getPagination(page, 10);
 
@@ -13,6 +15,8 @@ const getAll = async(req , res) => {
         limit,
         offset
     });
+
+    logger.info(`Paginando las categorias`);
 
     const response = getPagingData(data, page, limit);
 
