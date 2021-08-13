@@ -1,4 +1,4 @@
-const { Categorias} = require('../models');
+const { Categorias , Marca} = require('../models');
 
 
 const buscarCategoriaPorId = async ( id ) => {
@@ -13,6 +13,19 @@ const buscarCategoriaPorId = async ( id ) => {
     return data;
 }
 
+const buscarMarcasPorId = async (id ) => {
+    let data = {};
+
+    data = await Marca.findOne({
+        where: {
+            id
+          }
+    });
+
+    return data;
+}
+
 module.exports = {
-    buscarCategoriaPorId
+    buscarCategoriaPorId,
+    buscarMarcasPorId
 }

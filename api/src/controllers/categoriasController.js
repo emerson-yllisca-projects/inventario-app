@@ -3,7 +3,7 @@ const { Categorias } = require('../models');
 const _ = require('lodash');
 const {getPagination , getPagingData } = require('../utils/general');
 const logger = require('../../config/server/logger');
-const { buscarCategoriaPorId  } = require('../utils/modelosUtils');
+const { buscarCategoriaPorId, buscarMarcasPorId  } = require('../utils/modelosUtils');
 const { validaNulls } = require('../utils/general')
 
 const getAll = async(req , res) => {
@@ -38,7 +38,7 @@ const getOne = async(req , res) => {
 
         let data = await buscarCategoriaPorId(id);
 
-        if(validaNulls(data)){
+        if(!data){
             data = {};
         }
 
@@ -81,32 +81,41 @@ const create = async( req , res) => {
 const update = async(req , res) => {
 
     let categoria = {};
-    let  existeCategoria = {} ;
     let data = _.pick(req.body, [
-        'categoria_id',
+        'id',
         'categoria_nombre',
         'categoria_descripcion',
         'categoria_estado'
     ]);
 
     try {
-         existeCategoria =  await buscarCategoriaPorId(data.categoria_id);
 
-        if(validaNulls(existeCategoria)){
+        const existeCategoria =  await buscarMarcasPorId(data.id);
+
+        if(!existeCategoria){
+
             return res.status(400).json({
                 ok:false,
-                msg: `La categoria con id ${data.categoria_id} no existe`
+                msg: `La categoria con id ${data.id} no existe`
             });
+
         }else{
             // se actualiza la fehca de actualizacion 
             data.updatedAt = new Date();
-            categoria = JSON.parse(JSON.stringify(await Categorias.update(data)));
+            
+            await Categorias.update(data , {
+                where: {
+                    id: data.id
+                }
+            });
+
+            categoria = await buscarCategoriaPorId(data.id);
 
             return res.json({
                 ok:true,
                 msg:`Categoria ${categoria.id} actualizada correctamente`,
                 categoria
-            })
+            });
         }
 
     } catch (e) {

@@ -25,12 +25,9 @@ const router = Router();
         validarCampos
     ] , create);
 
-    router.post('/update' , [
-        check('categoria_id' , 'El id de la categoria es obligatoria').not().isEmpty(),
-        check('categoria_id' , 'El id de la categoria es obligatoria').isNumeric(),
-        check('categoria_nombre' , 'El nombre de la categoria es obligatoria').not().isEmpty(),
-        check('categoria_descripcion' , 'La descripcion de la categoria es obligatoria').not().isEmpty(),
-        check('categoria_estado' , 'El estado de la categoria es obligatoria').not().isEmpty(),
+    router.put('/update' , [
+        check('id' , 'El id de la categoria es obligatoria').not().isEmpty(),
+        check('id' , 'El id de la categoria es obligatoria').isNumeric(),
         validarCampos
     ] , update);
 
