@@ -24,7 +24,24 @@ const getPagination = (page, size) => {
     };
   };
 
+
+  const getErrorResponse = (res , error)  => {
+
+    return res.status(500).json({
+      ok:false , 
+      Message: 'Hubo un error inesperado',
+      Error:error.message
+    });
+
+  }
+
+  const StatusSucessResponses = ( res) => {
+    return res.status(200)
+  }
+
   module.exports = {
     getPagination,
-    getPagingData
+    getPagingData,
+    getErrorResponse,
+    StatusSucessResponses
   }

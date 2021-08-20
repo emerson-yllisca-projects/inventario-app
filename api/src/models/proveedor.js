@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Proveedor.init({
-    nombre_proveedor: DataTypes.STRING
+    nombre_proveedor: DataTypes.STRING,
+    descripcion_proveedor:DataTypes.STRING,
+    telefono_proveedor:DataTypes.STRING,
+    correo_proveedor:DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Proveedor',

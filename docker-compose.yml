@@ -1,9 +1,9 @@
 version: '3'
 services: 
-    inventario_db_2:
+    db_:
         platform: linux/amd64
-        build: .
-        container_name: db_inventario_2
+        image:  mysql:latest
+        container_name: inventario
         ports: 
             - 13306:3306
         environment: 
@@ -12,5 +12,5 @@ services:
             MYSQL_USER: "user_inventario"
             MYSQL_PASSWORD: "mysql_inventario2021_root"
         volumes: 
-            - ./schemas:/var/lib/mysql:rw
+            - ./schemas_db:/var/lib/mysql:rw
        

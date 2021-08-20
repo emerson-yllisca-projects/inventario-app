@@ -16,6 +16,12 @@ module.exports = {
         type: Sequelize.STRING
       },
 
+      telefono_proveedor:{
+        type: Sequelize.STRING
+      },
+      correo_proveedor:{
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
