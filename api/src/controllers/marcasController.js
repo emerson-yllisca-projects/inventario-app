@@ -3,15 +3,14 @@ const logger = require('../../config/server/logger');
 const {getPagination , getPagingData } = require('../utils/general');
 const { Marca } = require('../models');
 const { buscarMarcasPorId } = require('../utils/modelosUtils');
-const { validaNulls } = require('../utils/general');
-
+ 
 const getAll = async( req , res) => {
 
     const  { page } = req.query;
 
     logger.info(`Listando las marcas...`);
 
-    const { limit, offset } = getPagination(page, 5);
+    const { limit, offset } = getPagination(page, 10);
 
     const data = await Marca.findAndCountAll({
         limit,
@@ -85,7 +84,7 @@ const create = async ( req , res ) => {
 
 const update = async ( req , res ) => {
 
-    let marca = { };
+    let marca = {};
 
     let data = _.pick(req.body, [
         "id",

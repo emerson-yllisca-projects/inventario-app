@@ -11,11 +11,11 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-
-
+   
       await queryInterface.bulkInsert('Productos', [{
         nombre_producto: 'Producto 1',
         descripcion_producto: 'desc Producto 1',
+        categoria_id:1,
         marca_id: 1,
         proveedor_id:1,
         precio:12.3,

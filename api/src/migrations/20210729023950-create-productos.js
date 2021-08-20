@@ -14,6 +14,9 @@ module.exports = {
       descripcion_producto:{
         type: Sequelize.STRING
       },
+      categoria_id:{
+        type: Sequelize.INTEGER
+      },
       marca_id:{
         type: Sequelize.INTEGER
       },

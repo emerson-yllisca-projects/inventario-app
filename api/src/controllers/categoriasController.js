@@ -4,8 +4,7 @@ const _ = require('lodash');
 const {getPagination , getPagingData } = require('../utils/general');
 const logger = require('../../config/server/logger');
 const { buscarCategoriaPorId, buscarMarcasPorId  } = require('../utils/modelosUtils');
-const { validaNulls } = require('../utils/general')
-
+ 
 const getAll = async(req , res) => {
 
     const  { page } = req.query;

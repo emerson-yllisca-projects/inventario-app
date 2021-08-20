@@ -18,14 +18,14 @@ module.exports = {
         categoria_descripcion:'Aqui no aplican bebidas alcholicas',
         categoria_estado:true,
         createdAt: new Date(),
-        updatedAt: null
+        updatedAt: new Date()
       }, 
       {
         categoria_nombre:'Lacteos',
         categoria_descripcion:'Leche, Yogurt',
         categoria_estado:true,
         createdAt: new Date(),
-        updatedAt: null
+        updatedAt: new Date()
       }
   ], {});
 
