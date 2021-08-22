@@ -27,7 +27,7 @@ const router = Router();
 
     router.put('/update' , [
         check('id' , 'El id de la categoria es obligatoria').not().isEmpty(),
-        check('id' , 'El id de la categoria es obligatoria').isNumeric(),
+        check('id' , 'El id de la categoria debe ser numerico').isNumeric(),
         validarCampos
     ] , update);
 

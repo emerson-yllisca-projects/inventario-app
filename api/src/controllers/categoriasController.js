@@ -1,9 +1,9 @@
 
-const { Categorias } = require('../models');
 const _ = require('lodash');
+const { Categorias } = require('../models');
 const {getPagination , getPagingData } = require('../utils/general');
-const logger = require('../../config/server/logger');
 const { buscarCategoriaPorId, buscarMarcasPorId  } = require('../utils/modelosUtils');
+const logger = require('../../config/server/logger');
  
 const getAll = async(req , res) => {
 

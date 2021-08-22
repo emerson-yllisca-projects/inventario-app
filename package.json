@@ -12,12 +12,13 @@
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
-    "nodemon": "^2.0.12",
     "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0",
     "winston": "^3.3.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
   "scripts": {
     "dev": "nodemon --watch api  api/src/index.js"
   },

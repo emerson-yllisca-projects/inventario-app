@@ -1,5 +1,4 @@
-const { Categorias , Marca , Proveedor } = require('../models');
-
+const { Categorias , Marca , Proveedor , Productos } = require('../models');
 
 const buscarCategoriaPorId = async ( id ) => {
     let data = {};
@@ -37,8 +36,38 @@ const buscarProveedorPorId = async( id ) => {
     return data;
 }
 
+
+const buscarProductoPorId = async( id ) => {
+
+     let data = {};
+
+    data = await Productos.findOne({
+        where:{
+            id
+        },
+        include: [
+            {
+              model: Marca,
+              as:'marca'
+            },
+            {
+              model:Proveedor,
+              as:'proveedor'
+            },
+            {
+              model:Categorias,
+              as:'categoria'
+            }
+        ]
+    });
+
+    return data;
+
+}
+
 module.exports = {
     buscarCategoriaPorId,
     buscarMarcasPorId,
-    buscarProveedorPorId
+    buscarProveedorPorId,
+    buscarProductoPorId
 }

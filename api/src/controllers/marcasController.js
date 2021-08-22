@@ -17,7 +17,9 @@ const getAll = async( req , res) => {
         offset
     });
 
-    logger.info(`Paginando las categorias`);
+    console.log("data" , data)
+
+    logger.info(`Paginando las marcas`);
 
     const response = getPagingData(data, page, limit);
 

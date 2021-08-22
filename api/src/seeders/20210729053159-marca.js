@@ -17,6 +17,12 @@ module.exports = {
       descripcion_marca:'desc Marca 1',
       createdAt: new Date(),
       updatedAt: new Date()
+    }, 
+    {
+      nombre_marca:'Marca 2',
+      descripcion_marca:'desc Marca 2',
+      createdAt: new Date(),
+      updatedAt: new Date()
     }], {});
 
   },

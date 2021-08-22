@@ -35,6 +35,13 @@ const getPagination = (page, size) => {
 
   }
 
+  const getNotFoundResponse = (res , model ) => {
+    return res.status(401).json({
+      ok:false,
+      Message:`Not Found ${model}`
+    });
+  }
+
   const StatusSucessResponses = ( res) => {
     return res.status(200)
   }
@@ -43,5 +50,6 @@ const getPagination = (page, size) => {
     getPagination,
     getPagingData,
     getErrorResponse,
-    StatusSucessResponses
+    StatusSucessResponses,
+    getNotFoundResponse
   }

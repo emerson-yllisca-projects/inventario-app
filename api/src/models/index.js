@@ -33,8 +33,5 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-
-db.Productos.hasOne(db.Marca , {as : 'marca' , foreignKey: 'id'})
-db.Productos.hasOne(db.Proveedor , {as : 'proveedor' , foreignKey: 'id'})
-
+ 
 module.exports = db;
