@@ -13,6 +13,7 @@ const buscarCategoriaPorId = async ( id ) => {
 }
 
 const buscarMarcasPorId = async (id ) => {
+    
     let data = {};
 
     data = await Marca.findOne({

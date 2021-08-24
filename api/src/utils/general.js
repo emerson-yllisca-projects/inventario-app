@@ -24,7 +24,6 @@ const getPagination = (page, size) => {
     };
   };
 
-
   const getErrorResponse = (res , error)  => {
 
     return res.status(500).json({
